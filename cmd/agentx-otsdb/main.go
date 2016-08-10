@@ -182,10 +182,10 @@ func main() {
 			Logger:        log.StandardLogger()}
 
 		//collectFn := []func(tsdmetrics.TaggedRegistry){collectMibs}
-		collectFn := tsdmetrics.RuntimeCaptureFn
-		collectFn = append(collectFn, collectMibs)
+		//collectFn := tsdmetrics.RuntimeCaptureFn
+		//collectFn = append(collectFn, collectMibs)
 
-		metricsTsdb.RunWithPreprocessing(ctx, collectFn)
+		metricsTsdb.RunWithPreprocessing(ctx, tsdmetrics.RuntimeCaptureFn)
 
 		return nil
 	}
